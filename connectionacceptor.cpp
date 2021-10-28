@@ -12,7 +12,7 @@ ConnectionAcceptor::ConnectionAcceptor(const QString& address, const quint16 por
         qInfo().noquote() << "<-" << serverAddress().toString() + " : " +
                    QString::number(serverPort()) << global::getCurrentTimeString();
     } else {
-        throw "Server not binded";
+        throw std::runtime_error("Server not binded");
     }
 }
 
