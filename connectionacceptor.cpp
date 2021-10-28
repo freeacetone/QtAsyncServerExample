@@ -18,7 +18,7 @@ ConnectionAcceptor::ConnectionAcceptor(const QString& address, const quint16 por
 
 void ConnectionAcceptor::incomingConnection(qintptr handle)
 {
-    TcpSocketThread* thread = new TcpSocketThread(handle);
+    TcpSocketThread* thread = new TcpSocketThread(handle, this);
     connect (thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
     thread->start();
 }
